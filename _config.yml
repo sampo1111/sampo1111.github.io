@@ -160,6 +160,13 @@ pwa:
 
 paginate: 10
 
+plugins:
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
 # The base URL of your site
 baseurl: ""
 

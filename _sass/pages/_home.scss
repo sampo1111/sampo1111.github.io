@@ -1,4 +1,3 @@
-@use '../abstracts/variables' as v;
 @use '../abstracts/breakpoints' as bp;
 @use '../abstracts/placeholders';
 
@@ -9,97 +8,71 @@
     margin-top: 2.5rem;
   }
 
-  .card-wrapper {
-    &:hover {
-      text-decoration: none;
-    }
+  .post-list-item {
+    padding: 1.75rem 0 2rem;
+    border-bottom: 1px solid var(--main-border-color);
 
-    &:not(:last-child) {
-      margin-bottom: 1.25rem;
+    &:first-child {
+      padding-top: 0;
     }
   }
 
-  .card {
-    border: 0;
-    background: none;
+  .post-list-title {
+    margin: 0 0 1rem;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.3;
 
-    %img-radius {
-      border-radius: v.$radius-lg v.$radius-lg 0 0;
+    @include bp.lt(bp.get(md)) {
+      font-size: 1.35rem;
+    }
 
-      @include bp.md {
-        border-radius: 0 v.$radius-lg v.$radius-lg 0;
+    a {
+      @extend %link-color;
+
+      border-bottom: 0;
+      text-decoration: none;
+
+      &:hover {
+        @extend %link-hover;
+      }
+    }
+  }
+
+  .post-list-excerpt {
+    display: -webkit-box;
+    margin: 0 0 1.45rem;
+    overflow: hidden;
+    color: var(--post-list-text-color);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .post-list-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.65rem;
+    color: var(--text-muted-color);
+    font-size: 0.95rem;
+
+    i {
+      margin-right: 0.35rem;
+    }
+
+    a {
+      color: inherit;
+      border-bottom: 0;
+      text-decoration: none;
+
+      &:hover {
+        @extend %link-hover;
       }
     }
 
-    .preview-img {
-      @extend %img-radius;
-
-      img {
-        @extend %img-radius;
-      }
-    }
-
-    .card-body {
-      height: 100%;
-      padding: 1rem;
-
-      @include bp.md {
-        padding: 1.75rem 1.75rem 1.25rem;
-      }
-
-      .card-title {
-        @extend %text-clip;
-
-        color: var(--heading-color) !important;
-        font-size: 1.25rem;
-      }
-
-      %muted {
-        color: var(--text-muted-color) !important;
-      }
-
-      .card-text {
-        @include bp.md {
-          display: inherit !important;
-        }
-
-        &.content {
-          @extend %muted;
-
-          p {
-            @extend %text-clip;
-
-            line-height: 1.5;
-            margin: 0;
-          }
-        }
-      }
-
-      .post-meta {
-        @extend %muted;
-
-        i {
-          &:not(:first-child) {
-            margin-left: 1.5rem;
-
-            @include bp.md {
-              margin-left: 1.75rem;
-            }
-          }
-        }
-
-        em {
-          @extend %normal-font-style;
-
-          color: inherit;
-        }
-
-        > div:first-child {
-          display: block;
-
-          @extend %text-ellipsis;
-        }
-      }
+    em {
+      @extend %normal-font-style;
     }
   }
 } /* #post-list */
