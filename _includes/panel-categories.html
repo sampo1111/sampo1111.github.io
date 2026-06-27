@@ -1,0 +1,81 @@
+<!-- The categories list in the side panel -->
+
+{% assign sort_categories = site.categories | sort %}
+
+{% if sort_categories.size > 0 %}
+  <section id="access-categories">
+    <h2 class="panel-heading">
+      {{- site.data.locales[include.lang].tabs.categories | default: site.data.locales[include.lang].layout.category | default: 'Categories' | upcase -}}
+    </h2>
+
+    <ul class="content panel-categories list-unstyled ps-0 pb-1 ms-1 mt-2">
+      {% for category in sort_categories %}
+        {% assign category_name = category | first %}
+        {% assign posts_of_category = category | last %}
+        {% assign first_post = posts_of_category | first %}
+
+        {% if category_name == first_post.categories[0] %}
+          {% assign sub_categories = '' | split: '' %}
+
+          {% for post in posts_of_category %}
+            {% assign second_category = post.categories[1] %}
+            {% if second_category %}
+              {% unless sub_categories contains second_category %}
+                {% assign sub_categories = sub_categories | push: second_category %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+
+          {% assign sub_categories = sub_categories | sort %}
+          {% assign sub_categories_size = sub_categories | size %}
+          {% assign top_posts_size = site.categories[category_name] | size %}
+          {% assign post_measure = site.data.locales[include.lang].categories.post_measure %}
+
+          {% if top_posts_size > 1 %}
+            {% assign post_measure = site.data.locales[include.lang].categories.post_measure.plural | default: post_measure %}
+          {% else %}
+            {% assign post_measure = site.data.locales[include.lang].categories.post_measure.singular | default: post_measure %}
+          {% endif %}
+
+          <li class="panel-category">
+            <div class="panel-category-line">
+              <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
+
+              {% capture category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
+              <a class="panel-category-name" href="{{ category_url | relative_url }}">{{ category_name }}</a>
+
+              <span class="panel-category-count">{{ top_posts_size }} {{ post_measure }}</span>
+
+              {% if sub_categories_size > 0 %}
+                <i class="fas fa-angle-down panel-category-arrow"></i>
+              {% else %}
+                <i class="fas fa-angle-right panel-category-arrow"></i>
+              {% endif %}
+            </div>
+
+            {% if sub_categories_size > 0 %}
+              <ul class="panel-subcategories list-unstyled">
+                {% for sub_category in sub_categories %}
+                  {% assign posts_size = site.categories[sub_category] | size %}
+                  {% assign sub_post_measure = site.data.locales[include.lang].categories.post_measure %}
+
+                  {% if posts_size > 1 %}
+                    {% assign sub_post_measure = site.data.locales[include.lang].categories.post_measure.plural | default: sub_post_measure %}
+                  {% else %}
+                    {% assign sub_post_measure = site.data.locales[include.lang].categories.post_measure.singular | default: sub_post_measure %}
+                  {% endif %}
+
+                  <li class="panel-subcategory">
+                    {% capture sub_category_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
+                    <a class="panel-category-name" href="{{ sub_category_url | relative_url }}">{{ sub_category }}</a>
+                    <span class="panel-category-count">{{ posts_size }} {{ sub_post_measure }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
