@@ -508,26 +508,36 @@ h4 {
 .content {
   .math-box {
     --math-box-color: #1f6feb;
-    --math-box-bg: rgb(31 111 235 / 5%);
-    --math-box-border: rgb(31 111 235 / 15%);
+    --math-box-border: var(--math-box-color);
+    --math-box-title-color: #ffffff;
 
     margin: 1.5rem 0;
-    padding: 1.2rem 1.35rem;
+    padding: 0 0 1.15rem;
     border: 1px solid var(--math-box-border);
-    border-left: 0.3rem solid var(--math-box-color);
-    border-radius: 0.5rem;
-    background: var(--math-box-bg);
+    border-radius: 0.25rem;
+    background: var(--main-bg);
     color: var(--text-color);
+    overflow: hidden;
 
     &::before {
       display: block;
-      margin-bottom: 0.85rem;
-      color: var(--heading-color);
+      padding: 0.65rem 1.1rem;
+      background: var(--math-box-color);
+      color: var(--math-box-title-color);
       font-family: v.$font-family-heading;
       font-size: 1.2rem;
       font-weight: 700;
       line-height: 1.35;
       content: attr(data-title);
+    }
+
+    > * {
+      margin-left: 1.35rem;
+      margin-right: 1.35rem;
+    }
+
+    > :first-child {
+      margin-top: 1.1rem;
     }
 
     > :last-child {
@@ -543,37 +553,28 @@ h4 {
     }
 
     mjx-container[display='true'] {
-      margin: 1rem 0;
+      margin: 1rem 1.35rem;
     }
   }
 
   .math-box.theorem {
-    --math-box-color: #2da44e;
-    --math-box-bg: rgb(45 164 78 / 5%);
-    --math-box-border: rgb(45 164 78 / 15%);
+    --math-box-color: #111111;
   }
 
   .math-box.property {
     --math-box-color: #2da44e;
-    --math-box-bg: rgb(45 164 78 / 5%);
-    --math-box-border: rgb(45 164 78 / 15%);
   }
 
   .math-box.example {
     --math-box-color: #6e7781;
-    --math-box-bg: rgb(110 119 129 / 7%);
-    --math-box-border: rgb(110 119 129 / 20%);
   }
 
   .math-box.proof {
     --math-box-color: #6e7781;
-    --math-box-bg: transparent;
-    --math-box-border: rgb(110 119 129 / 22%);
+    --math-box-title-color: #ffffff;
   }
 
   .math-box.warning {
     --math-box-color: #bf8700;
-    --math-box-bg: rgb(191 135 0 / 8%);
-    --math-box-border: rgb(191 135 0 / 24%);
   }
 }
