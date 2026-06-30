@@ -519,6 +519,161 @@ h4 {
     }
   }
 
+  .set-diagram {
+    margin: 2rem 0;
+
+    .set-box {
+      position: relative;
+      border: 2px solid var(--main-border-color);
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--main-bg) 92%, var(--main-border-color));
+    }
+
+    .set-title {
+      margin-bottom: 0;
+      color: var(--heading-color);
+      font-family: v.$font-family-heading;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .powerset {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 42rem;
+      min-height: 34rem;
+      padding: 2rem 2.2rem;
+      border-color: var(--text-muted-color);
+
+      > .set-title {
+        position: absolute;
+        top: 1.35rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        text-align: center;
+      }
+    }
+
+    .lebesgue {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: min(70%, 24rem);
+      min-height: 22rem;
+      margin: 2.2rem auto 0;
+      padding: 2rem 2.4rem 1.5rem;
+      border-color: #00a86b;
+      background: color-mix(in srgb, #00a86b 8%, var(--main-bg));
+      transform: translateX(-10%);
+
+      > .set-title {
+        position: absolute;
+        top: 1.1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75%;
+        text-align: center;
+      }
+    }
+
+    .borel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      width: min(100%, 22rem);
+      min-height: 13rem;
+      margin: 1rem auto 0;
+      padding: 2.5rem 1.5rem 1.25rem;
+      border-color: #2142ab;
+      background: color-mix(in srgb, #2142ab 9%, var(--main-bg));
+
+      > .set-title {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 78%;
+        text-align: center;
+      }
+
+      .set-list {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        gap: 0.25rem 1.25rem;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style-position: inside;
+      }
+    }
+
+    .set-note {
+      align-self: center;
+      margin-top: 0.75rem;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .nonmeasurable {
+      position: absolute;
+      right: 3.1rem;
+      bottom: 4.2rem;
+      width: 9.75rem;
+      padding: 0.75rem 0.85rem;
+      border: 2px dashed #bf8700;
+      border-radius: 50%;
+      background: color-mix(in srgb, #bf8700 8%, var(--main-bg));
+      color: var(--heading-color);
+      text-align: center;
+      font-weight: 700;
+
+      span {
+        display: block;
+        margin-top: 0.25rem;
+        color: var(--text-muted-color);
+        font-weight: 400;
+      }
+    }
+
+    @include bp.lte(bp.get(sm)) {
+      .powerset {
+        min-height: 33rem;
+        padding: 2rem 1rem;
+      }
+
+      .lebesgue {
+        width: auto;
+        min-height: 20rem;
+        margin-top: 2.9rem;
+        padding: 2rem 1rem 1.25rem;
+        transform: none;
+      }
+
+      .borel {
+        min-height: 13rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        .set-list {
+          grid-template-columns: 1fr;
+          gap: 0.2rem;
+        }
+      }
+
+      .nonmeasurable {
+        right: 50%;
+        bottom: 1.4rem;
+        transform: translateX(50%);
+        width: 10rem;
+        padding: 0.7rem 0.85rem;
+      }
+    }
+  }
+
   .math-box {
     --math-box-color: #2142AB;
     --math-box-border: var(--math-box-color);
