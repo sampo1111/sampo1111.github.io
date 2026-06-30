@@ -7,6 +7,13 @@
   h#{$i} {
     @extend %heading;
 
+    font-weight: 600;
+    word-break: keep-all;
+
+    strong {
+      font-weight: inherit;
+    }
+
     @if $i > 1 {
       @extend %anchor;
     }
@@ -147,6 +154,24 @@ sup {
 
 main {
   line-height: 1.85;
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 600;
+    word-break: keep-all;
+
+    strong {
+      font-weight: inherit;
+    }
+  }
 
   h1 {
     margin-top: 2rem;
