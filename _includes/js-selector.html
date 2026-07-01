@@ -64,7 +64,12 @@
 
 <script defer src="{{ script | relative_url }}"></script>
 
-{% if page.math %}
+{% if page.math
+  or page.layout == 'home'
+  or page.layout == 'archives'
+  or page.layout == 'category'
+  or page.layout == 'tag'
+%}
   <!-- MathJax -->
   <script src="{{ '/assets/js/data/mathjax.js' | relative_url }}"></script>
   <script id="MathJax-script" async src="{{ site.data.origin[type].mathjax.js | relative_url }}"></script>
