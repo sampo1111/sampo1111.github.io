@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: Hyun's Blog # the main title
 
-tagline: Kyungpook National University # it will display as the subtitle
+tagline: "Kyungpook National University<br>Statistics" # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Statistics undergraduate student at Kyungpook National University
