@@ -620,9 +620,9 @@ h4 {
 
     .nonmeasurable {
       position: absolute;
-      right: 3.1rem;
-      bottom: 4.2rem;
-      width: 9.75rem;
+      right: 4.8rem;
+      bottom: 5.2rem;
+      width: 9.25rem;
       padding: 0.75rem 0.85rem;
       border: 2px dashed #bf8700;
       border-radius: 50%;
@@ -636,6 +636,7 @@ h4 {
         margin-top: 0.25rem;
         color: var(--text-muted-color);
         font-weight: 400;
+        line-height: 1.35;
       }
     }
 
@@ -666,9 +667,9 @@ h4 {
 
       .nonmeasurable {
         right: 50%;
-        bottom: 1.4rem;
+        bottom: 2.2rem;
         transform: translateX(50%);
-        width: 10rem;
+        width: 9rem;
         padding: 0.7rem 0.85rem;
       }
     }
