@@ -126,6 +126,464 @@ w_{\mathrm{eq}}+P^\top\Lambda
 \right)
 $$
 
+<details class="proof-toggle" markdown="1">
+<summary>유도 과정</summary>
+
+Black–Litterman 모형에서 기대수익률의 사후분포는
+
+$$
+\mu\mid Q
+\sim
+N(\bar\mu,\bar M^{-1})
+\tag{A.1}
+$$
+
+이고, 사후 정밀도행렬은
+
+$$
+\bar M
+=
+(\tau\Sigma)^{-1}
++
+P^\top\Omega^{-1}P
+\tag{A.2}
+$$
+
+이다.
+
+실제 수익률의 공분산은 기대수익률 추정의 불확실성까지 포함하므로
+
+$$
+\bar\Sigma
+=
+\Sigma+\bar M^{-1}
+\tag{A.3}
+$$
+
+이다.
+
+따라서 평균–분산 최적화의 일계조건은
+
+$$
+\bar\mu
+=
+\delta\bar\Sigma w^*
+\tag{A.4}
+$$
+
+이며, 식 (A.3)을 대입하면
+
+$$
+\bar\mu
+=
+\delta
+\left(
+\Sigma+\bar M^{-1}
+\right)w^*
+\tag{A.5}
+$$
+
+이다.
+
+식 (A.5)의 양변에 $\bar M$을 곱하면
+
+$$
+\bar M\bar\mu
+=
+\delta
+\left(
+\bar M\Sigma+I
+\right)w^*
+\tag{A.6}
+$$
+
+을 얻는다.
+
+한편 Black–Litterman 사후평균은
+
+$$
+\bar\mu
+=
+\bar M^{-1}
+\left[
+(\tau\Sigma)^{-1}\Pi
++
+P^\top\Omega^{-1}Q
+\right]
+\tag{A.7}
+$$
+
+이므로, 양변에 $\bar M$을 곱하면
+
+$$
+\bar M\bar\mu
+=
+(\tau\Sigma)^{-1}\Pi
++
+P^\top\Omega^{-1}Q
+\tag{A.8}
+$$
+
+이다.
+
+식 (A.6)과 식 (A.8)을 결합하면
+
+$$
+\delta
+\left(
+\bar M\Sigma+I
+\right)w^*
+=
+(\tau\Sigma)^{-1}\Pi
++
+P^\top\Omega^{-1}Q
+\tag{A.9}
+$$
+
+를 얻는다.
+
+이제 식 (A.2)를 이용하면
+
+$$
+\bar M\Sigma
+=
+\left[
+(\tau\Sigma)^{-1}
++
+P^\top\Omega^{-1}P
+\right]\Sigma
+\tag{A.10}
+$$
+
+이다.
+
+여기서
+
+$$
+(\tau\Sigma)^{-1}\Sigma
+=
+\frac{1}{\tau}I
+\tag{A.11}
+$$
+
+이므로
+
+$$
+\bar M\Sigma
+=
+\frac{1}{\tau}I
++
+P^\top\Omega^{-1}P\Sigma
+\tag{A.12}
+$$
+
+가 된다.
+
+따라서
+
+$$
+\bar M\Sigma+I
+=
+\frac{1+\tau}{\tau}I
++
+P^\top\Omega^{-1}P\Sigma
+\tag{A.13}
+$$
+
+이다.
+
+식 (A.13)을 식 (A.9)에 대입하면
+
+$$
+\delta
+\left[
+\frac{1+\tau}{\tau}I
++
+P^\top\Omega^{-1}P\Sigma
+\right]w^*
+=
+\frac{1}{\tau}\Sigma^{-1}\Pi
++
+P^\top\Omega^{-1}Q
+\tag{A.14}
+$$
+
+를 얻는다.
+
+시장균형 위험프리미엄은
+
+$$
+\Pi
+=
+\delta\Sigma w_{\mathrm{eq}}
+\tag{A.15}
+$$
+
+이므로
+
+$$
+\Sigma^{-1}\Pi
+=
+\delta w_{\mathrm{eq}}
+\tag{A.16}
+$$
+
+이다.
+
+따라서 식 (A.14)는
+
+$$
+\delta
+\left[
+\frac{1+\tau}{\tau}I
++
+P^\top\Omega^{-1}P\Sigma
+\right]w^*
+=
+\frac{\delta}{\tau}w_{\mathrm{eq}}
++
+P^\top\Omega^{-1}Q
+\tag{A.17}
+$$
+
+로 정리된다.
+
+식 (A.17)의 양변에 $\tau/\delta$를 곱하면
+
+$$
+\left[
+(1+\tau)I
++
+\tau P^\top\Omega^{-1}P\Sigma
+\right]w^*
+=
+w_{\mathrm{eq}}
++
+P^\top\frac{\tau}{\delta}\Omega^{-1}Q
+\tag{A.18}
+$$
+
+이다.
+
+식 (A.18)을 전개하면
+
+$$
+(1+\tau)w^*
++
+\tau P^\top\Omega^{-1}P\Sigma w^*
+=
+w_{\mathrm{eq}}
++
+P^\top\frac{\tau}{\delta}\Omega^{-1}Q
+\tag{A.19}
+$$
+
+가 된다.
+
+$P^\top$이 포함된 항을 오른쪽에 모으면
+
+$$
+(1+\tau)w^*
+=
+w_{\mathrm{eq}}
++
+P^\top
+\left[
+\frac{\tau}{\delta}\Omega^{-1}Q
+-
+\tau\Omega^{-1}P\Sigma w^*
+\right]
+\tag{A.20}
+$$
+
+을 얻는다.
+
+이제 대괄호 안의 벡터를 $\Lambda$라고 정의하자.
+
+$$
+\Lambda
+=
+\frac{\tau}{\delta}\Omega^{-1}Q
+-
+\tau\Omega^{-1}P\Sigma w^*
+\tag{A.21}
+$$
+
+그러면 식 (A.20)은
+
+$$
+(1+\tau)w^*
+=
+w_{\mathrm{eq}}
++
+P^\top\Lambda
+\tag{A.22}
+$$
+
+가 된다.
+
+따라서 Black–Litterman 최적 포트폴리오는
+
+$$
+\boxed{
+w^*
+=
+\frac{1}{1+\tau}
+\left(
+w_{\mathrm{eq}}
++
+P^\top\Lambda
+\right)
+}
+\tag{A.23}
+$$
+
+로 나타낼 수 있다.
+
+식 (A.23)은 Black–Litterman 최적 포트폴리오가 축소된 시장균형 포트폴리오와 견해 포트폴리오들의 가중합으로 구성됨을 보여준다.
+
+이제 $\Lambda$를 $w^*$를 포함하지 않는 형태로 나타내자.
+
+식 (A.23)을 식 (A.21)에 대입하면
+
+$$
+\Lambda
+=
+\frac{\tau}{\delta}\Omega^{-1}Q
+-
+\frac{\tau}{1+\tau}
+\Omega^{-1}P\Sigma
+\left(
+w_{\mathrm{eq}}
++
+P^\top\Lambda
+\right)
+\tag{A.24}
+$$
+
+이다.
+
+이를 전개하면
+
+$$
+\Lambda
+=
+\frac{\tau}{\delta}\Omega^{-1}Q
+-
+\frac{\tau}{1+\tau}
+\Omega^{-1}P\Sigma w_{\mathrm{eq}}
+-
+\frac{\tau}{1+\tau}
+\Omega^{-1}P\Sigma P^\top\Lambda
+\tag{A.25}
+$$
+
+가 된다.
+
+$\Lambda$를 포함하는 항을 왼쪽으로 옮기면
+
+$$
+\left[
+I
++
+\frac{\tau}{1+\tau}
+\Omega^{-1}P\Sigma P^\top
+\right]\Lambda
+=
+\frac{\tau}{\delta}\Omega^{-1}Q
+-
+\frac{\tau}{1+\tau}
+\Omega^{-1}P\Sigma w_{\mathrm{eq}}
+\tag{A.26}
+$$
+
+이다.
+
+식 (A.26)의 양변에 $\Omega/\tau$를 곱하면
+
+$$
+\left[
+\frac{\Omega}{\tau}
++
+\frac{P\Sigma P^\top}{1+\tau}
+\right]\Lambda
+=
+\frac{Q}{\delta}
+-
+\frac{P\Sigma w_{\mathrm{eq}}}{1+\tau}
+\tag{A.27}
+$$
+
+를 얻는다.
+
+이제
+
+$$
+A
+=
+\frac{\Omega}{\tau}
++
+\frac{P\Sigma P^\top}{1+\tau}
+\tag{A.28}
+$$
+
+라고 정의하면 식 (A.27)은
+
+$$
+A\Lambda
+=
+\frac{Q}{\delta}
+-
+\frac{P\Sigma w_{\mathrm{eq}}}{1+\tau}
+\tag{A.29}
+$$
+
+가 된다.
+
+$A$가 가역행렬이라면 양변에 $A^{-1}$을 곱하여
+
+$$
+\boxed{
+\Lambda
+=
+A^{-1}
+\left[
+\frac{Q}{\delta}
+-
+\frac{P\Sigma w_{\mathrm{eq}}}{1+\tau}
+\right]
+}
+\tag{A.30}
+$$
+
+을 얻는다.
+
+따라서 Black–Litterman 최적 포트폴리오는 식 (A.23)과 식 (A.30)을 이용하여
+
+$$
+\boxed{
+w^*
+=
+\frac{1}{1+\tau}
+\left[
+w_{\mathrm{eq}}
++
+P^\top
+A^{-1}
+\left(
+\frac{Q}{\delta}
+-
+\frac{P\Sigma w_{\mathrm{eq}}}{1+\tau}
+\right)
+\right]
+}
+\tag{A.31}
+$$
+
+로 나타낼 수 있다.
+
+</details>
+
 $P$의 각 행은 하나의 견해 포트폴리오다.
 
 따라서
@@ -269,6 +727,651 @@ q-p^\top\tilde\mu
 $$
 
 여기서 분모는 항상 양수다.
+
+<details class="proof-toggle" markdown="1">
+<summary>유도 과정</summary>
+
+기존에 $K$개의 견해가 주어져 있다고 하자. 견해행렬, 전망값 벡터, 전망오차의 공분산행렬을 각각 $P$, $Q$, $\Omega$라고 한다.
+
+계산을 간단하게 하기 위해
+
+$$
+G
+=
+\frac{\Sigma}{1+\tau}
+\tag{B.1}
+$$
+
+라고 정의하자.
+
+기존 견해 포트폴리오의 비중 벡터 $\Lambda$는
+
+$$
+\Lambda
+=
+A^{-1}
+\left(
+\frac{Q}{\delta}
+-
+PGw_{\mathrm{eq}}
+\right)
+\tag{B.2}
+$$
+
+로 나타낼 수 있다. 여기서
+
+$$
+A
+=
+\frac{\Omega}{\tau}
++
+PGP^\top
+\tag{B.3}
+$$
+
+이다.
+
+따라서 식 (B.2)는 다음 연립방정식과 같다.
+
+$$
+A\Lambda
+=
+\frac{Q}{\delta}
+-
+PGw_{\mathrm{eq}}
+\tag{B.4}
+$$
+
+이제 투자자가 새로운 견해 하나를 추가한다고 하자. 새로운 견해는
+
+$$
+p^\top\mu
+=
+q+\varepsilon,
+\qquad
+\varepsilon\sim N(0,\omega)
+\tag{B.5}
+$$
+
+로 표현한다.
+
+여기서 $p\in\mathbb R^N$은 새로운 견해 포트폴리오이고, $q$는 해당 견해 포트폴리오에 대해 투자자가 예상한 기대수익률이며, $\omega$는 새로운 견해의 불확실성이다.
+
+새로운 견해를 기존 견해에 추가하면 견해행렬과 전망값 벡터는
+
+$$
+\widehat P
+=
+\begin{pmatrix}
+P\\
+p^\top
+\end{pmatrix},
+\qquad
+\widehat Q
+=
+\begin{pmatrix}
+Q\\
+q
+\end{pmatrix}
+\tag{B.6}
+$$
+
+가 된다.
+
+기존 견해의 오차와 새로운 견해의 오차가 서로 독립이라고 가정하면 전망오차의 공분산행렬은
+
+$$
+\widehat\Omega
+=
+\begin{pmatrix}
+\Omega & 0\\
+0 & \omega
+\end{pmatrix}
+\tag{B.7}
+$$
+
+로 확장된다.
+
+새로운 견해를 포함한 행렬 $\widehat A$는
+
+$$
+\widehat A
+=
+\frac{\widehat\Omega}{\tau}
++
+\widehat P G\widehat P^\top
+\tag{B.8}
+$$
+
+이다.
+
+식 (B.6)과 식 (B.7)을 식 (B.8)에 대입하면
+
+$$
+\widehat A
+=
+\begin{pmatrix}
+A & b\\
+b^\top & c
+\end{pmatrix}
+\tag{B.9}
+$$
+
+의 블록행렬로 나타낼 수 있다. 여기서
+
+$$
+b
+=
+PGp
+=
+P\frac{\Sigma}{1+\tau}p
+\tag{B.10}
+$$
+
+이고,
+
+$$
+c
+=
+\frac{\omega}{\tau}
++
+p^\top Gp
+=
+\frac{\omega}{\tau}
++
+p^\top\frac{\Sigma}{1+\tau}p
+\tag{B.11}
+$$
+
+이다.
+
+새로운 견해를 추가한 뒤의 전체 비중 벡터를
+
+$$
+\widehat\Lambda
+=
+\begin{pmatrix}
+x\\
+\widehat\lambda_{K+1}
+\end{pmatrix}
+\tag{B.12}
+$$
+
+라고 하자.
+
+여기서 $x$는 새로운 견해가 추가된 뒤 조정된 기존 $K$개 견해의 비중 벡터이고, $\widehat\lambda_{K+1}$은 새롭게 추가된 견해 포트폴리오의 비중이다.
+
+새로운 견해를 포함한 비중 벡터는
+
+$$
+\widehat A\widehat\Lambda
+=
+\frac{\widehat Q}{\delta}
+-
+\widehat P G w_{\mathrm{eq}}
+\tag{B.13}
+$$
+
+을 만족한다.
+
+오른쪽 항을
+
+$$
+h
+=
+\frac{Q}{\delta}
+-
+PGw_{\mathrm{eq}}
+\tag{B.14}
+$$
+
+와
+
+$$
+s
+=
+\frac{q}{\delta}
+-
+p^\top Gw_{\mathrm{eq}}
+\tag{B.15}
+$$
+
+로 정의하면 식 (B.13)은
+
+$$
+\begin{pmatrix}
+A & b\\
+b^\top & c
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+\widehat\lambda_{K+1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+h\\
+s
+\end{pmatrix}
+\tag{B.16}
+$$
+
+가 된다.
+
+블록행렬의 곱을 전개하면
+
+$$
+Ax
++
+b\widehat\lambda_{K+1}
+=
+h
+\tag{B.17}
+$$
+
+와
+
+$$
+b^\top x
++
+c\widehat\lambda_{K+1}
+=
+s
+\tag{B.18}
+$$
+
+를 얻는다.
+
+식 (B.17)을 $x$에 대해 정리하면
+
+$$
+Ax
+=
+h
+-
+b\widehat\lambda_{K+1}
+\tag{B.19}
+$$
+
+이므로
+
+$$
+x
+=
+A^{-1}h
+-
+A^{-1}b\widehat\lambda_{K+1}
+\tag{B.20}
+$$
+
+이다.
+
+한편 식 (B.4)에 의해
+
+$$
+A^{-1}h
+=
+\Lambda
+\tag{B.21}
+$$
+
+이므로 식 (B.20)은
+
+$$
+x
+=
+\Lambda
+-
+\widehat\lambda_{K+1}A^{-1}b
+\tag{B.22}
+$$
+
+가 된다.
+
+따라서 새로운 견해를 추가한 뒤의 전체 비중 벡터는
+
+$$
+\boxed{
+\widehat\Lambda
+=
+\begin{pmatrix}
+\Lambda-\widehat\lambda_{K+1}A^{-1}b\\
+\widehat\lambda_{K+1}
+\end{pmatrix}
+}
+\tag{B.23}
+$$
+
+로 나타낼 수 있다.
+
+이는 새로운 견해가 추가되면 새로운 견해의 비중만 생성되는 것이 아니라, 새로운 견해와 기존 견해 사이의 관계에 따라 기존 견해의 비중도 조정된다는 것을 의미한다.
+
+이제 새로운 견해의 비중 $\widehat\lambda_{K+1}$을 구하자.
+
+식 (B.22)를 식 (B.18)에 대입하면
+
+$$
+b^\top
+\left(
+\Lambda
+-
+\widehat\lambda_{K+1}A^{-1}b
+\right)
++
+c\widehat\lambda_{K+1}
+=
+s
+\tag{B.24}
+$$
+
+이다.
+
+이를 전개하면
+
+$$
+b^\top\Lambda
+-
+\widehat\lambda_{K+1}b^\top A^{-1}b
++
+c\widehat\lambda_{K+1}
+=
+s
+\tag{B.25}
+$$
+
+를 얻는다.
+
+$\widehat\lambda_{K+1}$을 포함하는 항을 묶으면
+
+$$
+\left(
+c-b^\top A^{-1}b
+\right)
+\widehat\lambda_{K+1}
+=
+s-b^\top\Lambda
+\tag{B.26}
+$$
+
+이므로
+
+$$
+\widehat\lambda_{K+1}
+=
+\frac{
+s-b^\top\Lambda
+}{
+c-b^\top A^{-1}b
+}
+\tag{B.27}
+$$
+
+이다.
+
+이제 식 (B.27)의 분자를 정리한다. 식 (B.10)과 식 (B.15)에 의해
+
+$$
+b^\top\Lambda
+=
+p^\top GP^\top\Lambda
+\tag{B.28}
+$$
+
+이므로
+
+$$
+s-b^\top\Lambda
+=
+\frac{q}{\delta}
+-
+p^\top Gw_{\mathrm{eq}}
+-
+p^\top GP^\top\Lambda
+\tag{B.29}
+$$
+
+이다.
+
+오른쪽의 마지막 두 항을 묶으면
+
+$$
+s-b^\top\Lambda
+=
+\frac{q}{\delta}
+-
+p^\top G
+\left(
+w_{\mathrm{eq}}
++
+P^\top\Lambda
+\right)
+\tag{B.30}
+$$
+
+을 얻는다.
+
+기존 $K$개의 견해를 반영한 Black–Litterman 최적 포트폴리오는
+
+$$
+w^*
+=
+\frac{1}{1+\tau}
+\left(
+w_{\mathrm{eq}}
++
+P^\top\Lambda
+\right)
+\tag{B.31}
+$$
+
+이다.
+
+또한 식 (B.1)에 의해
+
+$$
+G
+=
+\frac{\Sigma}{1+\tau}
+$$
+
+이므로
+
+$$
+G
+\left(
+w_{\mathrm{eq}}
++
+P^\top\Lambda
+\right)
+=
+\Sigma w^*
+\tag{B.32}
+$$
+
+이다.
+
+따라서 식 (B.30)은
+
+$$
+s-b^\top\Lambda
+=
+\frac{q}{\delta}
+-
+p^\top\Sigma w^*
+\tag{B.33}
+$$
+
+로 정리된다.
+
+이제 기존 최적 포트폴리오가 암묵적으로 나타내는 기대수익률 벡터를
+
+$$
+\widetilde\mu
+=
+\delta\Sigma w^*
+\tag{B.34}
+$$
+
+라고 정의하자.
+
+한편 Black–Litterman 최적 포트폴리오는
+
+$$
+w^*
+=
+\frac{1}{\delta}
+\bar\Sigma^{-1}\bar\mu
+\tag{B.35}
+$$
+
+이므로 식 (B.34)는
+
+$$
+\widetilde\mu
+=
+\Sigma\bar\Sigma^{-1}\bar\mu
+\tag{B.36}
+$$
+
+로도 나타낼 수 있다.
+
+식 (B.34)에 의해
+
+$$
+p^\top\Sigma w^*
+=
+\frac{1}{\delta}
+p^\top\widetilde\mu
+\tag{B.37}
+$$
+
+이므로 식 (B.33)은
+
+$$
+s-b^\top\Lambda
+=
+\frac{1}{\delta}
+\left(
+q-p^\top\widetilde\mu
+\right)
+\tag{B.38}
+$$
+
+가 된다.
+
+식 (B.38)을 식 (B.27)에 대입하면 새로운 견해 포트폴리오의 비중은
+
+$$
+\boxed{
+\widehat\lambda_{K+1}
+=
+\frac{
+q-p^\top\widetilde\mu
+}{
+\delta
+\left(
+c-b^\top A^{-1}b
+\right)
+}
+}
+\tag{B.39}
+$$
+
+로 나타난다.
+
+마지막으로 식 (B.39)의 분모가 양수임을 확인하자.
+
+$\widehat\Omega$가 양의 정부호이고 $G$가 양의 준정부호이면
+
+$$
+\widehat A
+=
+\frac{\widehat\Omega}{\tau}
++
+\widehat P G\widehat P^\top
+\tag{B.40}
+$$
+
+는 양의 정부호이다.
+
+양의 정부호인 블록행렬
+
+$$
+\widehat A
+=
+\begin{pmatrix}
+A & b\\
+b^\top & c
+\end{pmatrix}
+$$
+
+에서 $A$에 대한 Schur complement는 양수이므로
+
+$$
+c-b^\top A^{-1}b
+>
+0
+\tag{B.41}
+$$
+
+이다.
+
+또한 $\delta>0$이므로 식 (B.39)의 분모는 항상 양수다. 따라서 새로운 견해 포트폴리오 비중의 부호는 분자
+
+$$
+q-p^\top\widetilde\mu
+$$
+
+의 부호에 의해 결정된다.
+
+투자자의 새로운 전망이 기존 모형의 암묵적 예상보다 낙관적이면
+
+$$
+q
+>
+p^\top\widetilde\mu
+\quad\Longrightarrow\quad
+\widehat\lambda_{K+1}
+>
+0
+\tag{B.42}
+$$
+
+이다.
+
+반대로 새로운 전망이 기존 모형의 암묵적 예상보다 비관적이면
+
+$$
+q
+<
+p^\top\widetilde\mu
+\quad\Longrightarrow\quad
+\widehat\lambda_{K+1}
+<
+0
+\tag{B.43}
+$$
+
+이다.
+
+새로운 전망이 기존 모형의 예상과 정확히 같다면
+
+$$
+q
+=
+p^\top\widetilde\mu
+\quad\Longrightarrow\quad
+\widehat\lambda_{K+1}
+=
+0
+\tag{B.44}
+$$
+
+이 된다.
+
+따라서 새로운 견해 포트폴리오의 비중은 투자자가 제시한 새로운 전망 $q$와 기존 모형이 암묵적으로 예상한 수익률 $p^\top\widetilde\mu$의 차이에 의해 결정된다.
+
+
+</details>
 
 따라서 새로운 전망의 방향은 분자
 
