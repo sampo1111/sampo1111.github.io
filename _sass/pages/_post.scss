@@ -675,6 +675,83 @@ h4 {
     }
   }
 
+  details.proof-toggle {
+    --proof-toggle-color: #6e7781;
+    --proof-toggle-border: var(--proof-toggle-color);
+    --proof-toggle-title-color: #ffffff;
+
+    margin: 1.5rem 0;
+    border: 1px solid var(--proof-toggle-border);
+    border-radius: 0.25rem;
+    background: var(--main-bg);
+    color: var(--text-color);
+    overflow: hidden;
+
+    > summary {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 1.1rem;
+      background: var(--proof-toggle-color);
+      color: var(--proof-toggle-title-color);
+      font-family: v.$font-family-heading;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.35;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+
+      &::marker,
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::before {
+        content: '+';
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 1px solid rgb(255 255 255 / 55%);
+        border-radius: 50%;
+        flex: 0 0 auto;
+        font-size: 0.95rem;
+        line-height: 1;
+      }
+    }
+
+    &[open] > summary::before {
+      content: '-';
+    }
+
+    > :not(summary) {
+      margin-left: 1.35rem;
+      margin-right: 1.35rem;
+    }
+
+    > summary + * {
+      margin-top: 1.1rem;
+    }
+
+    > :last-child {
+      margin-bottom: 1.15rem;
+    }
+
+    p,
+    ul,
+    ol {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    mjx-container[display='true'] {
+      margin: 1rem 1.35rem;
+    }
+  }
+
   .math-box {
     --math-box-color: #2142AB;
     --math-box-border: var(--math-box-color);
@@ -748,6 +825,11 @@ h4 {
   }
 
   [data-bs-theme='dark'] & {
+    details.proof-toggle {
+      --proof-toggle-color: #4b5563;
+      --proof-toggle-border: #667085;
+    }
+
     .math-box.theorem {
       --math-box-color: #3f4754;
       --math-box-border: #667085;
