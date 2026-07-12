@@ -752,6 +752,19 @@ h4 {
     }
   }
 
+  .eq-ref {
+    color: var(--link-color);
+    border-bottom: 1px dotted currentColor;
+    cursor: help;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      color: var(--link-hover-color);
+      outline: none;
+    }
+  }
+
   .math-box {
     --math-box-color: #2142AB;
     --math-box-border: var(--math-box-color);
@@ -834,5 +847,29 @@ h4 {
       --math-box-color: #3f4754;
       --math-box-border: #667085;
     }
+  }
+}
+
+.eq-preview-popover {
+  position: fixed;
+  z-index: 1080;
+  max-width: min(44rem, calc(100vw - 2rem));
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 0.35rem;
+  background: var(--main-bg);
+  color: var(--text-color);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 18%);
+  overflow-x: auto;
+  pointer-events: none;
+
+  &[hidden] {
+    display: none;
+  }
+
+  mjx-container {
+    margin: 0 !important;
+    min-width: max-content;
+    font-size: 0.95rem;
   }
 }

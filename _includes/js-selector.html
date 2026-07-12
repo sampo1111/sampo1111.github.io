@@ -73,6 +73,10 @@
   <!-- MathJax -->
   <script src="{{ '/assets/js/data/mathjax.js' | relative_url }}"></script>
   <script id="MathJax-script" async src="{{ site.data.origin[type].mathjax.js | relative_url }}"></script>
+
+  {% if page.layout == 'post' %}
+    <script defer src="{{ '/assets/js/data/equation-tooltips.js' | relative_url }}"></script>
+  {% endif %}
 {% endif %}
 
 <!-- Pageviews -->
