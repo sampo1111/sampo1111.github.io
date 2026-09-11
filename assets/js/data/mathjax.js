@@ -9,6 +9,7 @@ layout: compress
 
 MathJax = {
   tex: {
+    processEscapes: true,
     {%- comment -%} start/end delimiter pairs for in-line math {%- endcomment -%}
     inlineMath: [
       ['$', '$'],
